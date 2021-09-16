@@ -14,9 +14,13 @@ const Catalog = ({ products, getProducts }) => {
         setInput(ev.target.value.toLowerCase());
     };
 
+    const handleSubmit = (ev) => {
+        ev.preventDefault();
+    };
+
     return (
         <>
-            <form>
+            <form onSubmit={handleSubmit}>
                 <input type='text' value={input} onChange={handleChange} />
             </form>
             <div>
