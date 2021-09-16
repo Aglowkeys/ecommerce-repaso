@@ -1,12 +1,44 @@
-import { useEffect, useState } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import { getProducts } from '../../redux/actions';
 import ProductCard from '../ProductCard';
 
-const Catalog = ({ products, getProducts }) => {
-    const [input, setInput] = useState('');
+/* class Catalog extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            input: '',
+        };
+    }
 
-    useEffect(() => {
+    componentDidMount() {
+        this.props.getProducts();
+    }
+
+    render() {
+        const { products } = this.props;
+        return (
+            <div>
+                {products.length > 0
+                    ? products.map((product) => <ProductCard key={product.id} product={product} />)
+                    : 'Cargando...'}
+            </div>
+        );
+    }
+} */
+
+// const mapStateToProps = (state) => {
+//     return {
+//         products: state.products,
+//     };
+// };
+
+// export default connect(mapStateToProps, { getProducts })(Catalog);
+
+const Catalog = ({ products, getProducts }) => {
+    const [input, setInput] = React.useState('');
+
+    React.useEffect(() => {
         getProducts();
     }, []);
 
